@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#142b4a">
+  <title>Dashboard | Hostel Attendance Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Hostel attendance dashboard">
+        <span class="brand-mark">HA</span>
+        <span class="brand-name">Hostel<span>Attendance</span></span>
+      </a>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html" aria-current="page"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a class="nav-link" href="attendance.html"><span class="nav-icon">✓</span>Mark attendance</a>
+        <a class="nav-link" href="records.html"><span class="nav-icon">▤</span>Attendance records</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-icon">i</span>
+        <p>Attendance is saved in this browser on this device.</p>
+      </div>
+      <div class="sidebar-footer">HOSTEL WARDEN PORTAL<br><span>College mini-project</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HOSTEL ADMINISTRATION</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="today-chip"><span class="today-dot"></span><span id="today-date">Today</span></div>
+      </header>
+      <div id="global-message" class="message hidden" role="status" aria-live="polite"></div>
+
+      <section class="welcome-panel">
+        <div>
+          <p class="eyebrow light-eyebrow">WARDEN OVERVIEW</p>
+          <h2>Good day, Warden</h2>
+          <p>Here is the hostel attendance snapshot for today.</p>
+        </div>
+        <div class="welcome-decoration" aria-hidden="true">⌂</div>
+      </section>
+
+      <section class="stats-grid" aria-label="Today's attendance statistics">
+        <article class="stat-card">
+          <div class="stat-icon navy-icon">♙</div>
+          <div><p class="stat-label">Total students</p><p class="stat-value" id="total-students">0</p><p class="stat-foot">In the hostel roster</p></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green-icon">✓</div>
+          <div><p class="stat-label">Present today</p><p class="stat-value" id="present-count">0</p><p class="stat-foot">Marked present</p></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon red-icon">×</div>
+          <div><p class="stat-label">Absent today</p><p class="stat-value" id="absent-count">0</p><p class="stat-foot">Marked absent</p></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon blue-icon">%</div>
+          <div><p class="stat-label">Attendance rate</p><p class="stat-value" id="attendance-rate">0%</p><p class="stat-foot">Of recorded attendance</p></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel summary-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">DAILY SUMMARY</p><h2>Today's attendance</h2></div>
+            <span class="date-label" id="summary-date"></span>
+          </div>
+          <p id="summary-message" class="summary-copy">No attendance has been recorded for today yet.</p>
+          <div class="summary-counts">
+            <div class="summary-count"><span class="status-dot present-dot"></span><span>Present</span><strong id="summary-present">0</strong></div>
+            <div class="summary-count"><span class="status-dot absent-dot"></span><span>Absent</span><strong id="summary-absent">0</strong></div>
+            <div class="summary-count"><span class="status-dot unmarked-dot"></span><span>Not recorded</span><strong id="summary-unmarked">0</strong></div>
+          </div>
+          <div class="progress-track" aria-label="Attendance completion"><div id="summary-progress" class="progress-fill"></div></div>
+          <p id="completion-caption" class="progress-caption">0 of 10 students recorded</p>
+        </article>
+
+        <article class="panel actions-panel">
+          <p class="eyebrow">QUICK ACTIONS</p>
+          <h2>Manage attendance</h2>
+          <p class="panel-copy">Record today's roll call or review previous attendance entries.</p>
+          <a class="button button-primary button-wide" href="attendance.html"><span aria-hidden="true">✓</span> Mark attendance</a>
+          <a class="button button-secondary button-wide" href="records.html"><span aria-hidden="true">▤</span> View attendance records</a>
+        </article>
+      </section>
+      <footer class="page-footer">Hostel Attendance Management System <span>·</span> Attendance overview</footer>
+    </main>
+  </div>
+</body>
+</html>

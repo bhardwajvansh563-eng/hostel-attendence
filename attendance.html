@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#142b4a">
+  <title>Mark Attendance | Hostel Attendance Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-page="attendance">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Hostel attendance dashboard">
+        <span class="brand-mark">HA</span>
+        <span class="brand-name">Hostel<span>Attendance</span></span>
+      </a>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a class="nav-link active" href="attendance.html" aria-current="page"><span class="nav-icon">✓</span>Mark attendance</a>
+        <a class="nav-link" href="records.html"><span class="nav-icon">▤</span>Attendance records</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-icon">i</span>
+        <p>Choose a status for every student before saving.</p>
+      </div>
+      <div class="sidebar-footer">HOSTEL WARDEN PORTAL<br><span>College mini-project</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DAILY ROLL CALL</p>
+          <h1>Mark attendance</h1>
+        </div>
+        <a class="text-link desktop-dashboard-link" href="index.html">← Back to dashboard</a>
+      </header>
+      <div id="global-message" class="message hidden" role="status" aria-live="polite"></div>
+      <section class="page-intro">
+        <div>
+          <h2>Student attendance</h2>
+          <p>Select the attendance date, then mark each student present or absent.</p>
+        </div>
+        <div class="date-control">
+          <label for="attendance-date">Attendance date</label>
+          <input id="attendance-date" type="date">
+        </div>
+      </section>
+
+      <div id="attendance-message" class="message hidden" role="status" aria-live="polite"></div>
+      <section class="panel attendance-panel">
+        <div class="toolbar">
+          <div class="search-wrap">
+            <label class="visually-hidden" for="student-search">Search students</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="student-search" type="search" placeholder="Search by student name or ID" autocomplete="off">
+          </div>
+          <p class="selection-summary"><strong id="selection-count">0</strong> of <span id="roster-count">0</span> marked</p>
+        </div>
+
+        <div class="table-wrap attendance-table-wrap">
+          <table class="data-table attendance-table">
+            <thead><tr><th scope="col">Student</th><th scope="col">Student ID</th><th scope="col">Room</th><th scope="col">Attendance status</th></tr></thead>
+            <tbody id="student-list"></tbody>
+          </table>
+        </div>
+        <div id="student-empty" class="empty-state hidden">
+          <span class="empty-icon">⌕</span>
+          <h3>No students found</h3>
+          <p>Try a different name or student ID.</p>
+        </div>
+        <div class="attendance-actions">
+          <p class="form-hint">All students must be marked before you can save attendance.</p>
+          <div class="action-buttons">
+            <button id="clear-selection" class="button button-secondary" type="button">Clear selection</button>
+            <button id="save-attendance" class="button button-primary" type="button"><span aria-hidden="true">✓</span> Save attendance</button>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">Changes are saved to this browser's local storage when you select Save attendance.</footer>
+    </main>
+  </div>
+</body>
+</html>
